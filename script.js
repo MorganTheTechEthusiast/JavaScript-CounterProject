@@ -1,18 +1,29 @@
-let count = 0;
+// Selectors
+const counterDisplay = document.getElementById('counter');
+const increaseBtn = document.getElementById('increase-btn');
+const decreaseBtn = document.getElementById('decrease-btn');
+const resetBtn = document.getElementById('reset-btn');
 
-document.getElementById("decrease-btn").onclick = function(){
-    count --;
-    document.getElementById("counter").innerHTML = count;
-}
+// Initial counter value
+let counterValue = 0;
 
-//Function to increase to increase count number
+// Event Listeners
+increaseBtn.addEventListener('click', () => {
+    counterValue++;
+    updateCounterDisplay();
+});
 
-document.getElementById("increase-btn").onclick = function(){
-    count ++;
-document.getElementById("counter").innerHTML = count;
-}
+decreaseBtn.addEventListener('click', () => {
+    counterValue--;
+    updateCounterDisplay();
+});
 
-document.getElementById("reset-btn").onclick = function(){
-    count = 0;
-    document.getElementById("counter").innerHTML = count;
+resetBtn.addEventListener('click', () => {
+    counterValue = 0;
+    updateCounterDisplay();
+});
+
+// Functions
+function updateCounterDisplay() {
+    counterDisplay.textContent = counterValue;
 }
